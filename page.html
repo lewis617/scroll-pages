@@ -21,19 +21,13 @@
   #toolbar a {
     color: white;
   }
-
-  input#speedInput {
-    width: 20px;
-  }
 </style>
 
 <div id="toolbar">
   <a href=".">主页</a>
   每秒移动像素数：
-  <input id="speedInput" type="text" value="5">
+  <input id="speedInput" type="number" onchange="restartScroll()" value="5" min="1">
   <button onclick="startOrEndScroll()">开始/停止滚动</button>
-  <button onclick="changeSpeed(1)">加速</button>
-  <button onclick="changeSpeed(-1)">减速</button>
 </div>
 
 
@@ -54,10 +48,7 @@
       }, time);
     }
   }
-  function changeSpeed(changeValue) {
-    var newValue = speedInput.value * 1 + changeValue;
-    if (newValue === 0) { return; }
-    speedInput.value = newValue;
+  function restartScroll() {
     startOrEndScroll();
     startOrEndScroll();
   }
