@@ -1,4 +1,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body{
+    padding: 20px;
+  }
+  ol>li {
+    padding: 10px 0;
+  }
+</style>
+<input type="text" placeholder="输入网址" id="urlInput">
+<button onclick="enterScrollPage()">开始滚动</button>
 <ol>
   <li>
     <a href="page.html?p=https://tabs.ultimate-guitar.com/tab/green_day/last_night_on_earth_chords_824961">last night on earth</a>
@@ -26,3 +36,9 @@
     <a href="page.html?p=https://tabs.ultimate-guitar.com/tab/misc_traditional/home_on_the_range_chords_1726287">home_on_the_range</a>
   </li>
 </ol>
+<script>
+  function enterScrollPage() {
+    var url = document.querySelector('#urlInput').value;
+    location = 'page.html?p=' + url;
+  }
+</script>
