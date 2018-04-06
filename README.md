@@ -1,11 +1,5 @@
 <input type="text" placeholder="输入网址" id="urlInput">
-<button onclick="enterScrollPage()">开始滚动</button>
-<script>
-  function enterScrollPage() {
-    var url = document.querySelector('#urlInput').value;
-    location = 'page.html?p=' + url;
-  }
-</script>
+<button onclick="location = 'page.html?p=' + document.querySelector('#urlInput').value">Scroll Page</button>
 
 1.  [last night on earth](page.html?p=https://tabs.ultimate-guitar.com/tab/green_day/last_night_on_earth_chords_824961)
 2.  [wherever you will go](page.html?p=https://tabs.ultimate-guitar.com/tab/the_calling/wherever_you_will_go_chords_37465)
@@ -16,4 +10,4 @@
 7.  [goodbye_to_romance](page.html?p=https://tabs.ultimate-guitar.com/tab/ozzy_osbourne/goodbye_to_romance_chords_1130955)
 8.  [home_on_the_range](page.html?p=https://tabs.ultimate-guitar.com/tab/misc_traditional/home_on_the_range_chords_1726287)
 9.  [yellow](page.html?p=https://tabs.ultimate-guitar.com/tab/coldplay/yellow_chords_540497)
-
+10. [ill_have_to_say_i_love_you_in_a_song](page.html?p=https://tabs.ultimate-guitar.com/tab/jim_croce/ill_have_to_say_i_love_you_in_a_song_chords_1047560)
