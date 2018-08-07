@@ -6,7 +6,7 @@
 3.  [wonderful tonight](page.html?p=http://www.ccguitar.cn/wy_html/6438.htm)
 4.  [last night on earth](page.html?p=https://tabs.ultimate-guitar.com/tab/green_day/last_night_on_earth_chords_824961)
 5.  [better man](page.html?p=http://m.jitaba.cn/view.php?aid=5978)
-6.  [you raise me up](page.html?p=https://tabs.ultimate-guitar.com/tab/josh_groban/you_raise_me_up_chords_355090)
+6.  [you raise me up](page.html?p=https://tabs.ultimate-guitar.com/tab/josh_groban/you_raise_me_up_tabs_685047)
 7.  [goodbye_to_romance](page.html?p=https://tabs.ultimate-guitar.com/tab/ozzy_osbourne/goodbye_to_romance_chords_1130955)
 8.  [wherever you will go](page.html?p=https://tabs.ultimate-guitar.com/tab/the_calling/wherever_you_will_go_chords_37465)
 9.  [yellow](page.html?p=https://tabs.ultimate-guitar.com/tab/coldplay/yellow_chords_540497)
