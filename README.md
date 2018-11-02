@@ -3,7 +3,7 @@
 
 1.  [home_on_the_range](page.html?p=https://tabs.ultimate-guitar.com/tab/misc_traditional/home_on_the_range_chords_1726287)
 2.  [as tears go by](page.html?p=https://tabs.ultimate-guitar.com/tab/the_rolling_stones/as_tears_go_by_chords_346586)
-3.  [wonderful tonight](page.html?p=http://www.ccguitar.cn/wy_html/6438.htm)
+3.  [wonderful tonight](page.html?p=https://tabs.ultimate-guitar.com/tab/eric_clapton/wonderful_tonight_tabs_664886)
 4.  [last night on earth](page.html?p=https://tabs.ultimate-guitar.com/tab/green_day/last_night_on_earth_chords_824961)
 5.  [better man](page.html?p=http://m.jitaba.cn/view.php?aid=5978)
 6.  [you raise me up](page.html?p=https://tabs.ultimate-guitar.com/tab/josh_groban/you_raise_me_up_tabs_685047)
