@@ -24,15 +24,21 @@
   }
 
   #speedInput {
-    width: 30px;
+    width: 45px;
+    padding: 5px;
+  }
+  button{
+    padding: 5px;
   }
 </style>
 
 <div id="toolbar">
-  <a href=".">主页</a>
-  每秒移动像素数：
+  速度：
   <input id="speedInput" type="number" inputmode="numeric" pattern="[0-9]*" onchange="restartScroll()" value="5" min="1">
-  <button onclick="startOrEndScroll()">开始/停止滚动</button>
+  <button onclick="startOrEndScroll()">开关</button>
+  <button onclick="changeSpeed(1)">加速</button>
+  <button onclick="changeSpeed(-1)">减速</button>
+  <a href="."><button>主页</button></a>
 </div>
 
 
@@ -56,5 +62,10 @@
   function restartScroll() {
     startOrEndScroll();
     startOrEndScroll();
+  }
+  function changeSpeed(offset){
+    const value = speedInput.value * 1 + offset;
+    speedInput.value = value;
+    restartScroll();
   }
 </script>
