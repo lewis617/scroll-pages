@@ -5,7 +5,7 @@
 2.  [as tears go by](page.html?p=https://tabs.ultimate-guitar.com/tab/the_rolling_stones/as_tears_go_by_chords_346586)
 3.  [wonderful tonight](page.html?p=https://tabs.ultimate-guitar.com/tab/eric_clapton/wonderful_tonight_tabs_664886)
 4.  [last night on earth](page.html?p=https://tabs.ultimate-guitar.com/tab/green_day/last_night_on_earth_chords_824961)
-5.  [better man](page.html?p=https://cp.xiayiqu.com/pu/1423.html)
+5.  [better man](page.html?p=https://tabs.ultimate-guitar.com/user/tab/view?h=AtgOAlorlgZhx-3BJik3aOji)
 6.  [you raise me up](page.html?p=https://tabs.ultimate-guitar.com/tab/josh_groban/you_raise_me_up_tabs_685047)
 7.  [goodbye_to_romance](page.html?p=https://tabs.ultimate-guitar.com/tab/ozzy_osbourne/goodbye_to_romance_chords_1130955)
 8.  [wherever you will go](page.html?p=https://tabs.ultimate-guitar.com/tab/the_calling/wherever_you_will_go_chords_37465)
