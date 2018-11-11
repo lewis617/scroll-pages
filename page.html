@@ -50,13 +50,14 @@
   var speedInput = document.querySelector('#speedInput');
   var interval;
   function startOrEndScroll() {
-    var time = 1000 / (speedInput.value * 1);
+    var px = 2;
+    var time = 1000 * px / (speedInput.value * 1);
     if (interval) {
       clearInterval(interval);
       interval = false;
     } else {
       interval = setInterval(function () {
-        window.scrollBy(0, 1);
+        window.scrollBy(0, px);
       }, time);
     }
   }
