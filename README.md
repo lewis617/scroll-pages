@@ -13,3 +13,4 @@
 10. [ill_have_to_say_i_love_you_in_a_song](page.html?p=https://tabs.ultimate-guitar.com/tab/jim_croce/ill_have_to_say_i_love_you_in_a_song_chords_1047560)
 11. [if](page.html?p=https://tabs.ultimate-guitar.com/tab/bread/if_chords_172964)
 12. [longer](page.html?p=https://tabs.ultimate-guitar.com/tab/dan_fogelberg/longer_chords_1049249)
+13. [every_breath_you_take](page.html?p=https://tabs.ultimate-guitar.com/tab/the_police/every_breath_you_take_tabs_802919)
