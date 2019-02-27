@@ -14,4 +14,4 @@
 11. [if](page.html?p=https://tabs.ultimate-guitar.com/tab/bread/if_chords_172964)
 12. [longer](page.html?p=https://tabs.ultimate-guitar.com/tab/dan_fogelberg/longer_chords_1049249)
 13. [every_breath_you_take](page.html?p=https://tabs.ultimate-guitar.com/tab/the_police/every_breath_you_take_tabs_802919)
-14. [knockin_on_heavens_door](https://tabs.ultimate-guitar.com/tab/bob_dylan/knockin_on_heavens_door_chords_66559)
+14. [knockin_on_heavens_door](page.html?p=https://tabs.ultimate-guitar.com/tab/bob_dylan/knockin_on_heavens_door_chords_66559)
