@@ -19,3 +19,4 @@
 16. [let_it_be](page.html?p=https://tabs.ultimate-guitar.com/tab/the_beatles/let_it_be_chords_844608)
 17. [Don't look back in anger](page.html?p=https://tabs.ultimate-guitar.com/tab/oasis/dont-look-back-in-anger-chords-6097)
 18. [cant_take_my_eyes_off_you](page.html?p=https://tabs.ultimate-guitar.com/tab/frankie_valli/cant_take_my_eyes_off_you_chords_866344)
+19. [take_me_home_country_roads](page.html?p=https://tabs.ultimate-guitar.com/tab/john_denver/take_me_home_country_roads_chords_57606)
