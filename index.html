@@ -7,36 +7,33 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <header>
-        <h1>🎸 吉他谱集合</h1>
-        <p>收录经典歌曲吉他谱</p>
-    </header>
+    <!-- 歌曲列表页面 -->
+    <div class="songs-list" id="songsListView">
+        <h2>歌曲列表</h2>
+        <div id="songsList" class="songs-grid"></div>
+    </div>
 
-    <main>
-        <div class="container">
-            <div class="songs-list">
-                <h2>歌曲列表</h2>
-                <div id="songsList" class="songs-grid"></div>
-            </div>
-
-            <div class="song-display" id="songDisplay" style="display: none;">
-                <div class="song-header">
-                    <button id="backBtn" class="back-btn">← 返回列表</button>
-                    <div class="song-info">
-                        <h2 id="songTitle"></h2>
-                        <p id="songArtist"></p>
-                    </div>
-                </div>
-                <div class="chord-chart">
-                    <pre id="songContent"></pre>
-                </div>
+    <!-- 吉他谱详情页面 -->
+    <div class="song-display" id="songDisplay" style="display: none;">
+        <div class="top-controls">
+            <button id="backBtn" class="back-btn"><</button>
+            <div class="song-info">
+                <span id="songTitle" class="song-title"></span>
+                <span id="songArtist" class="song-artist"></span>
             </div>
         </div>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 吉他谱集合 - 静态网页版</p>
-    </footer>
+        
+        <div class="content-container">
+            <pre id="songContent" class="song-content"></pre>
+        </div>
+        
+        <div class="scroll-controls">
+            <button id="slowDownBtn" class="speed-btn">-</button>
+            <button id="playPauseBtn" class="play-btn">▶</button>
+            <button id="speedUpBtn" class="speed-btn">+</button>
+            <span id="speedDisplay" class="speed-display">速度: 1x</span>
+        </div>
+    </div>
 
     <script type="module" src="js/app.js"></script>
 </body>
