@@ -1,23 +1,74 @@
-<input type="text" placeholder="输入网址" id="urlInput">
-<button onclick="location = 'page.html?p=' + document.querySelector('#urlInput').value">Scroll Page</button>
+# 吉他谱集合
 
-1.  [home_on_the_range](page.html?p=https://tabs.ultimate-guitar.com/tab/misc_traditional/home_on_the_range_chords_1726287)
-2.  [as tears go by](page.html?p=https://tabs.ultimate-guitar.com/tab/the_rolling_stones/as_tears_go_by_chords_346586)
-3.  [wonderful tonight](page.html?p=https://tabs.ultimate-guitar.com/tab/eric_clapton/wonderful_tonight_tabs_664886)
-4.  [last night on earth](page.html?p=https://tabs.ultimate-guitar.com/tab/green_day/last_night_on_earth_chords_824961)
-5.  [better man](page.html?p=https://tabs.ultimate-guitar.com/tab/robbie_williams/better_man_chords_2510358)
-6.  [you raise me up](page.html?p=https://tabs.ultimate-guitar.com/tab/josh_groban/you_raise_me_up_tabs_685047)
-7.  [goodbye_to_romance](page.html?p=https://tabs.ultimate-guitar.com/tab/ozzy_osbourne/goodbye_to_romance_chords_1130955)
-8.  [wherever you will go](page.html?p=https://tabs.ultimate-guitar.com/tab/the_calling/wherever_you_will_go_chords_37465)
-9.  [yellow](page.html?p=https://tabs.ultimate-guitar.com/tab/coldplay/yellow_chords_540497)
-10. [ill_have_to_say_i_love_you_in_a_song](page.html?p=https://tabs.ultimate-guitar.com/tab/jim_croce/ill_have_to_say_i_love_you_in_a_song_chords_1047560)
-11. [if](page.html?p=https://tabs.ultimate-guitar.com/tab/bread/if_chords_172964)
-12. [longer](page.html?p=https://tabs.ultimate-guitar.com/tab/dan_fogelberg/longer_chords_1049249)
-13. [every_breath_you_take](page.html?p=https://tabs.ultimate-guitar.com/tab/the_police/every_breath_you_take_tabs_802919)
-14. [knockin_on_heavens_door](page.html?p=https://tabs.ultimate-guitar.com/tab/bob_dylan/knockin_on_heavens_door_chords_66559)
-15. [midnight blue](page.html?p=https://tabs.ultimate-guitar.com/tab/electric_light_orchestra/midnight_blue_chords_374488)
-16. [let_it_be](page.html?p=https://tabs.ultimate-guitar.com/tab/the_beatles/let_it_be_chords_844608)
-17. [Don't look back in anger](page.html?p=https://tabs.ultimate-guitar.com/tab/oasis/dont-look-back-in-anger-chords-6097)
-18. [cant_take_my_eyes_off_you](page.html?p=https://tabs.ultimate-guitar.com/tab/frankie_valli/cant_take_my_eyes_off_you_chords_866344)
-19. [take_me_home_country_roads](page.html?p=https://tabs.ultimate-guitar.com/tab/john_denver/take_me_home_country_roads_chords_57606)
-20. [love-of-my-life](page.html?p=https://tabs.ultimate-guitar.com/tab/queen/love-of-my-life-chords-340088)
+一个简洁的静态网页，用于展示和浏览吉他谱。
+
+## 功能特性
+
+- 📱 响应式设计，支持移动端和桌面端
+- 🎸 Ultimate Guitar 格式的吉他谱显示
+- 🎨 现代化的UI设计，带有毛玻璃效果
+- ⚡ 使用ES6模块化开发
+- 🚀 静态网页，可直接部署到GitHub Pages
+
+## 技术栈
+
+- HTML5
+- CSS3 (使用现代CSS特性如Grid、Flexbox、backdrop-filter)
+- JavaScript ES6+ (模块化)
+- 静态部署 (GitHub Pages)
+
+## 项目结构
+
+```
+.
+├── index.html          # 主页面
+├── app.js             # 主应用逻辑 (ES6 Module)
+├── songs.js           # 吉他谱数据存储 (ES6 Module)
+├── styles.css         # 样式文件
+└── README.md          # 项目说明
+```
+
+## 本地开发
+
+由于使用了ES6模块，需要通过HTTP服务器运行（而不是直接打开HTML文件）：
+
+```bash
+# 使用Python 3
+python -m http.server 8000
+
+# 使用Node.js (需要安装http-server)
+npx http-server
+
+# 使用PHP
+php -S localhost:8000
+```
+
+然后访问 `http://localhost:8000`
+
+## 添加新歌曲
+
+编辑 `songs.js` 文件，在 `songs` 数组中添加新的歌曲对象：
+
+```javascript
+{
+  id: 'unique-song-id',
+  title: '歌曲名称',
+  artist: '演唱者',
+  content: `吉他谱内容...`
+}
+```
+
+## GitHub Pages 部署
+
+1. 推送代码到GitHub仓库
+2. 在仓库设置中启用GitHub Pages
+3. 选择源分支（通常是main或gh-pages）
+4. 访问提供的URL即可
+
+## 当前收录歌曲
+
+- Stand by Me - Ben E. King
+
+## 许可证
+
+MIT License
