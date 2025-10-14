@@ -213,7 +213,7 @@ body {
     word-wrap: break-word;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     margin: 0;
-    height: calc(100vh - 140px);
+    height: calc(100vh - 180px);
     overflow-y: auto;
     scroll-behavior: smooth;
 }
@@ -294,7 +294,42 @@ body {
         padding: 0.6rem;
         font-size: 0.8rem;
         line-height: 1.25;
-        height: calc(100vh - 98px);
+        height: calc(100vh - 140px);
         border-radius: 6px;
+    }
+}
+
+/* iOS Safari 特殊适配 - 为底部地址栏预留空间 */
+@supports (-webkit-touch-callout: none) {
+    /* 检测iOS设备 */
+    .song-content {
+        height: calc(100vh - 220px) !important;
+        padding-bottom: 1.5rem;
+    }
+    
+    @media (max-width: 768px) {
+        .song-content {
+            height: calc(100vh - 180px) !important;
+            padding-bottom: 2rem;
+        }
+    }
+}
+
+/* 使用CSS环境变量适配iOS安全区域 */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+    .song-display {
+        padding-bottom: calc(0.5rem + env(safe-area-inset-bottom));
+    }
+    
+    .song-content {
+        height: calc(100vh - 180px - env(safe-area-inset-bottom));
+        padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
+    }
+    
+    @media (max-width: 768px) {
+        .song-content {
+            height: calc(100vh - 140px - env(safe-area-inset-bottom));
+            padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
+        }
     }
 }
