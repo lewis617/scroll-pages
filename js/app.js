@@ -95,7 +95,7 @@ class GuitarChartApp {
         card.className = 'song-card';
         card.innerHTML = `
             <h3>${song.title}</h3>
-            <p>演唱者: ${song.artist}</p>
+            <p>${song.artist}</p>
             <p>调性: ${song.key || '未知'}</p>
             <p>点击查看吉他谱</p>
         `;
@@ -109,8 +109,7 @@ class GuitarChartApp {
         const songsListView = document.getElementById('songsListView');
         const songDisplayElement = document.getElementById('songDisplay');
         const songTitleElement = document.getElementById('songTitle');
-        const songArtistElement = document.getElementById('songArtist');
-        const songKeyElement = document.getElementById('songKey');
+        const songKeyInfoElement = document.getElementById('songKeyInfo');
         const songContentElement = document.getElementById('songContent');
         const chordToggleBtn = document.getElementById('chordToggleBtn');
         
@@ -123,9 +122,8 @@ class GuitarChartApp {
         this.originalContent = song.content;
         
         // 设置歌曲信息
-        songTitleElement.textContent = song.title;
-        songArtistElement.textContent = `演唱者: ${song.artist}`;
-        songKeyElement.textContent = `调性: ${song.key || '未知'}`;
+        songTitleElement.textContent = `${song.title} - ${song.artist}`;
+        songKeyInfoElement.textContent = `调性: ${song.key || '未知'}`;
         songContentElement.textContent = song.content;
         
         // 重置和弦显示状态
