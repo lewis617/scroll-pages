@@ -61,6 +61,14 @@ body {
 .song-card p {
     color: #666;
     font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+.song-card p:last-child {
+    margin-bottom: 0;
+    color: #888;
+    font-size: 0.85rem;
+    font-style: italic;
 }
 
 /* 吉他谱详情页面 */
@@ -118,8 +126,11 @@ body {
 .song-info {
     flex-grow: 1;
     min-width: 0;
-    padding: 0.1rem 40px 0.1rem 40px;
+    padding: 0.05rem 40px 0.05rem 40px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .song-title {
@@ -130,15 +141,25 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    line-height: 1.2;
+    line-height: 1;
+    margin: 0 0 0.05rem 0;
 }
 
 .song-artist {
     color: #666;
-    font-size: 0.7rem;
-    display: block;
+    font-size: 0.65rem;
+    display: inline-block;
     line-height: 1;
-    margin-top: 0.1rem;
+    margin: 0 0.8rem 0 0;
+}
+
+.song-key {
+    color: #667eea;
+    font-size: 0.65rem;
+    font-weight: 600;
+    display: inline-block;
+    line-height: 1;
+    margin: 0;
 }
 
 /* 滚动控制区域 */
@@ -190,7 +211,34 @@ body {
     font-size: 0.75rem;
     font-weight: 500;
     position: absolute;
-    right: 1rem;
+    right: 5rem;
+}
+
+.chord-toggle-btn {
+    background: #764ba2;
+    color: white;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 16px;
+    cursor: pointer;
+    font-size: 0.7rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: absolute;
+    right: 0.5rem;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chord-toggle-btn:hover {
+    background: #8e5db0;
+    transform: scale(1.05);
+}
+
+.chord-toggle-btn.active {
+    background: #28a745;
 }
 
 /* 内容容器 */
@@ -263,15 +311,21 @@ body {
     }
     
     .song-info {
-        padding: 0.05rem 32px 0.05rem 32px;
+        padding: 0.02rem 32px 0.02rem 32px;
     }
     
     .song-title {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
+        margin: 0 0 0.02rem 0;
     }
     
     .song-artist {
-        font-size: 0.65rem;
+        font-size: 0.6rem;
+        margin-right: 0.6rem;
+    }
+    
+    .song-key {
+        font-size: 0.6rem;
     }
     
     .scroll-controls {
@@ -288,6 +342,14 @@ body {
     
     .speed-display {
         font-size: 0.7rem;
+        right: 4rem;
+    }
+    
+    .chord-toggle-btn {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.65rem;
+        height: 28px;
+        right: 0.3rem;
     }
     
     .song-content {
