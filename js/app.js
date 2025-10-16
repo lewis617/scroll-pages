@@ -250,46 +250,129 @@ class GuitarChartApp {
     }
 
     getChordToNumeralMapping(key) {
-        // 定义所有调的和弦到级数的映射
-        const keyMappings = {
-            'C': {
-                'C': 'I', 'Dm': 'ii', 'Em': 'iii', 'F': 'IV', 'G': 'V', 'Am': 'vi', 'Bdim': 'vii°',
-                'C7': 'I7', 'Dm7': 'ii7', 'Em7': 'iii7', 'F7': 'IV7', 'G7': 'V7', 'Am7': 'vi7',
-                'Cmaj7': 'Imaj7', 'Fmaj7': 'IVmaj7'
-            },
-            'G': {
-                'G': 'I', 'Am': 'ii', 'Bm': 'iii', 'C': 'IV', 'D': 'V', 'Em': 'vi', 'F#dim': 'vii°',
-                'G7': 'I7', 'Am7': 'ii7', 'Bm7': 'iii7', 'C7': 'IV7', 'D7': 'V7', 'Em7': 'vi7',
-                'Gmaj7': 'Imaj7', 'Cmaj7': 'IVmaj7'
-            },
-            'D': {
-                'D': 'I', 'Em': 'ii', 'F#m': 'iii', 'G': 'IV', 'A': 'V', 'Bm': 'vi', 'C#dim': 'vii°',
-                'D7': 'I7', 'Em7': 'ii7', 'F#m7': 'iii7', 'G7': 'IV7', 'A7': 'V7', 'Bm7': 'vi7',
-                'Dmaj7': 'Imaj7', 'Gmaj7': 'IVmaj7'
-            },
-            'A': {
-                'A': 'I', 'Bm': 'ii', 'C#m': 'iii', 'D': 'IV', 'E': 'V', 'F#m': 'vi', 'G#dim': 'vii°',
-                'A7': 'I7', 'Bm7': 'ii7', 'C#m7': 'iii7', 'D7': 'IV7', 'E7': 'V7', 'F#m7': 'vi7',
-                'Amaj7': 'Imaj7', 'Dmaj7': 'IVmaj7'
-            },
-            'E': {
-                'E': 'I', 'F#m': 'ii', 'G#m': 'iii', 'A': 'IV', 'B': 'V', 'C#m': 'vi', 'D#dim': 'vii°',
-                'E7': 'I7', 'F#m7': 'ii7', 'G#m7': 'iii7', 'A7': 'IV7', 'B7': 'V7', 'C#m7': 'vi7',
-                'Emaj7': 'Imaj7', 'Amaj7': 'IVmaj7'
-            },
-            'B': {
-                'B': 'I', 'C#m': 'ii', 'D#m': 'iii', 'E': 'IV', 'F#': 'V', 'G#m': 'vi', 'A#dim': 'vii°',
-                'B7': 'I7', 'C#m7': 'ii7', 'D#m7': 'iii7', 'E7': 'IV7', 'F#7': 'V7', 'G#m7': 'vi7',
-                'Bmaj7': 'Imaj7', 'Emaj7': 'IVmaj7'
-            },
-            'F': {
-                'F': 'I', 'Gm': 'ii', 'Am': 'iii', 'Bb': 'IV', 'C': 'V', 'Dm': 'vi', 'Edim': 'vii°',
-                'F7': 'I7', 'Gm7': 'ii7', 'Am7': 'iii7', 'Bb7': 'IV7', 'C7': 'V7', 'Dm7': 'vi7',
-                'Fmaj7': 'Imaj7', 'Bbmaj7': 'IVmaj7'
-            }
+        // 十二平均律的音名顺序（包含升降号）
+        const chromaticScale = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+        const flatScale = ['C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B'];
+        
+        // 处理调号的映射
+        const keyNormalization = {
+            'Db': 'C#', 'Eb': 'D#', 'Gb': 'F#', 'Ab': 'G#', 'Bb': 'A#'
         };
         
-        return keyMappings[key] || {};
+        const normalizedKey = keyNormalization[key] || key;
+        const keyIndex = chromaticScale.indexOf(normalizedKey);
+        
+        if (keyIndex === -1) return {};
+        
+        // 大调音阶的音程关系（半音数）
+        const majorScaleIntervals = [0, 2, 4, 5, 7, 9, 11];
+        
+        // 计算当前调的音阶
+        const scaleNotes = majorScaleIntervals.map(interval => {
+            const noteIndex = (keyIndex + interval) % 12;
+            return chromaticScale[noteIndex];
+        });
+        
+        // 判断使用升号还是降号系统
+        const useFlats = ['F', 'Bb', 'Eb', 'Ab', 'Db', 'Gb', 'Cb'].includes(key);
+        const noteNames = useFlats ? flatScale : chromaticScale;
+        
+        const mapping = {};
+        
+        // 自然音级的级数表示
+        const numerals = ['I', 'ii', 'iii', 'IV', 'V', 'vi', 'vii°'];
+        const minorNumerals = ['i', 'ii°', 'III', 'iv', 'v', 'VI', 'VII'];
+        
+        // 生成基本三和弦
+        scaleNotes.forEach((note, index) => {
+            const numeral = numerals[index];
+            const isMinor = [1, 2, 5].includes(index); // ii, iii, vi 是小调和弦
+            const isDim = index === 6; // vii° 是减和弦
+            
+            // 获取在当前调系统中的正确音名表示
+            const correctNote = this.getNoteInKeySystem(note, useFlats);
+            
+            if (isDim) {
+                mapping[correctNote + 'dim'] = numeral;
+            } else if (isMinor) {
+                mapping[correctNote + 'm'] = numeral;
+                mapping[correctNote + 'm7'] = numeral + '7';
+            } else {
+                mapping[correctNote] = numeral;
+                mapping[correctNote + '7'] = numeral + '7';
+                mapping[correctNote + 'maj7'] = numeral + 'maj7';
+                mapping[correctNote + 'sus4'] = numeral + 'sus4';
+            }
+        });
+        
+        // 添加变化音和弦（借调和弦）
+        this.addAlteratedChords(mapping, keyIndex, useFlats);
+        
+        return mapping;
+    }
+    
+    getNoteInKeySystem(note, useFlats) {
+        const sharpToFlat = {
+            'C#': 'Db', 'D#': 'Eb', 'F#': 'Gb', 'G#': 'Ab', 'A#': 'Bb'
+        };
+        const flatToSharp = {
+            'Db': 'C#', 'Eb': 'D#', 'Gb': 'F#', 'Ab': 'G#', 'Bb': 'A#'
+        };
+        
+        if (useFlats && sharpToFlat[note]) {
+            return sharpToFlat[note];
+        } else if (!useFlats && flatToSharp[note]) {
+            return flatToSharp[note];
+        }
+        return note;
+    }
+    
+    addAlteratedChords(mapping, keyIndex, useFlats) {
+        const chromaticScale = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
+        
+        // 常见的变化音级数对应关系（相对于主音的半音距离）
+        const alteratedChords = [
+            { interval: 3, numeral: 'bIII' },    // 降三级
+            { interval: 8, numeral: 'bVI' },     // 降六级  
+            { interval: 10, numeral: 'bVII' },   // 降七级
+        ];
+        
+        alteratedChords.forEach(({ interval, numeral }) => {
+            const noteIndex = (keyIndex + interval) % 12;
+            const note = this.getNoteInKeySystem(chromaticScale[noteIndex], useFlats);
+            
+            if (numeral === 'bIII') {
+                mapping[note] = numeral;
+                mapping[note + '7'] = numeral + '7';
+                mapping[note + 'maj7'] = numeral + 'maj7';
+            } else if (numeral === 'bVI') {
+                mapping[note] = numeral;
+                mapping[note + '7'] = numeral + '7';
+                mapping[note + 'maj7'] = numeral + 'Maj7';
+            } else if (numeral === 'bVII') {
+                mapping[note] = numeral;
+                mapping[note + '7'] = numeral + '7';
+            }
+        });
+        
+        // 添加主调小调形式 (i)
+        const tonicNote = this.getNoteInKeySystem(chromaticScale[keyIndex], useFlats);
+        mapping[tonicNote + 'm'] = 'i';
+        mapping[tonicNote + 'm7'] = 'im7';
+        
+        // 添加自然音级的小调形式（借用平行小调）
+        const majorScaleIntervals = [0, 2, 4, 5, 7, 9, 11];
+        majorScaleIntervals.forEach((interval, index) => {
+            const noteIndex = (keyIndex + interval) % 12;
+            const note = this.getNoteInKeySystem(chromaticScale[noteIndex], useFlats);
+            const romanNumerals = ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii'];
+            
+            // 为自然音级添加小调形式
+            if (index === 4) { // V级可以是小调形式 (v)
+                mapping[note + 'm'] = 'v';
+                mapping[note + 'm7'] = 'vm7';
+            }
+        });
     }
 }
 
