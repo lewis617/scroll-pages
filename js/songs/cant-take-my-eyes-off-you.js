@@ -3,7 +3,7 @@ export const song = {
     id: 'cant-take-my-eyes-off-you',
     title: "Can't Take My Eyes Off You",
     artist: 'Frankie Valli',
-    key: 'Bb',
+    key: 'E',
     content: `
 [Verse 1]
  
@@ -11,7 +11,7 @@ export const song = {
 You're just too good to be true
               Emaj7
 Can't take my eyes off you
-              E7sus4
+              E7
 You'd be like heaven to touch
         A
 I wanna hold you so much
@@ -31,7 +31,7 @@ Can't take my eyes off you
 Pardon the way that I stare
                 Emaj7
 There's nothing else to compare
-             E7sus4
+             E7
 The sight of you leaves me weak
                    A
 There are no words left to speak

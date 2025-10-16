@@ -371,7 +371,12 @@ class GuitarChartApp {
             const romanNumerals = ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii'];
             
             // 为自然音级添加小调形式和属七和弦
-            if (index === 2) { // III级：添加大调属七和弦 (III7)
+            if (index === 1) { // II级：添加大调和弦 (II) 和小调形式 (ii)
+                mapping[note] = 'II';
+                mapping[note + 'm'] = 'ii';
+                mapping[note + '7'] = 'II7';
+                mapping[note + 'm7'] = 'iim7';
+            } else if (index === 2) { // III级：添加大调属七和弦 (III7)
                 mapping[note + '7'] = 'III7';
             } else if (index === 3) { // IV级：添加小调形式 (iv)
                 mapping[note + 'm'] = 'iv';
