@@ -1,5 +1,5 @@
 // app.js - 主应用逻辑
-import { songs } from './songs.js';
+import { songs } from './songs-index.js';
 
 class GuitarChartApp {
     constructor() {

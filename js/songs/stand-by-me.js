@@ -1,6 +1,5 @@
-// songs.js - 吉他谱数据存储
-export const songs = [
-  {
+// stand-by-me.js
+export const song = {
     id: 'stand-by-me',
     title: 'Stand by Me',
     artist: 'Ben E. King',
@@ -75,7 +74,4 @@ Whenever you're in trouble won't you stand by me, oh, stand by me
 Oh, stand now, oh, stand, stand by me
 
 (fade out)`
-  },
-];
-
-export default songs;
+  };
