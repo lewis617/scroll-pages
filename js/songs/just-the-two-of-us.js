@@ -3,7 +3,7 @@ export const song = {
     id: 'just-the-two-of-us',
     title: 'Just the Two of Us',
     artist: 'Bill Withers',
-    key: 'Db',
+    key: 'C#',
     tags: ['loopable'],
     content: `[Intro]
 C#maj7    C7    Fm7    D#m7  G#7  C#maj7    C7    Fm7      x2

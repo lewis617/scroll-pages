@@ -324,7 +324,7 @@ class GuitarChartApp {
     }
 
     getChordToNumeralMapping(key) {
-        // 十二平均律的音名顺序（包含升降号）
+        // 十二平均律的音名顺序
         const chromaticScale = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
         const flatScale = ['C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B'];
         
@@ -338,128 +338,59 @@ class GuitarChartApp {
         
         if (keyIndex === -1) return {};
         
-        // 大调音阶的音程关系（半音数）
-        const majorScaleIntervals = [0, 2, 4, 5, 7, 9, 11];
-        
-        // 计算当前调的音阶
-        const scaleNotes = majorScaleIntervals.map(interval => {
-            const noteIndex = (keyIndex + interval) % 12;
-            return chromaticScale[noteIndex];
-        });
-        
-        // 判断使用升号还是降号系统
-        const useFlats = ['F', 'Bb', 'Eb', 'Ab', 'Db', 'Gb', 'Cb'].includes(key);
-        const noteNames = useFlats ? flatScale : chromaticScale;
+        // 级数表示（大调）
+        const numerals = ['I', 'bII', 'II', 'bIII', 'III', 'IV', 'bV', 'V', 'bVI', 'VI', 'bVII', 'VII'];
         
         const mapping = {};
         
-        // 自然音级的级数表示
-        const numerals = ['I', 'ii', 'iii', 'IV', 'V', 'vi', 'vii°'];
-        const minorNumerals = ['i', 'ii°', 'III', 'iv', 'v', 'VI', 'VII'];
-        
-        // 生成基本三和弦
-        scaleNotes.forEach((note, index) => {
-            const numeral = numerals[index];
-            const isMinor = [1, 2, 5].includes(index); // ii, iii, vi 是小调和弦
-            const isDim = index === 6; // vii° 是减和弦
+        // 为所有12个半音建立映射关系
+        for (let i = 0; i < 12; i++) {
+            const noteIndex = (keyIndex + i) % 12;
+            const sharpNote = chromaticScale[noteIndex];
+            const flatNote = flatScale[noteIndex];
+            const numeral = numerals[i];
             
-            // 获取在当前调系统中的正确音名表示
-            const correctNote = this.getNoteInKeySystem(note, useFlats);
+            // 为升号和降号版本都创建映射
+            const notesToMap = sharpNote === flatNote ? [sharpNote] : [sharpNote, flatNote];
             
-            if (isDim) {
-                mapping[correctNote + 'dim'] = numeral;
-            } else if (isMinor) {
-                mapping[correctNote + 'm'] = numeral;
-                mapping[correctNote + 'm7'] = numeral + '7';
-                mapping[correctNote + 'madd4'] = numeral + 'add4'; // 小调add4
-            } else {
-                mapping[correctNote] = numeral;
-                mapping[correctNote + '7'] = numeral + '7';
-                mapping[correctNote + 'maj7'] = numeral + 'maj7';
-                mapping[correctNote + 'sus4'] = numeral + 'sus4';
-                mapping[correctNote + 'add4'] = numeral + 'add4'; // 大调add4
-            }
-        });
-        
-        // 添加变化音和弦（借调和弦）
-        this.addAlteratedChords(mapping, keyIndex, useFlats);
+            notesToMap.forEach(note => {
+                // 基础和弦
+                mapping[note] = numeral;
+                // 小调
+                mapping[note + 'm'] = numeral.toLowerCase();
+                // 属七和弦
+                mapping[note + '7'] = numeral + '7';
+                // 小七和弦
+                mapping[note + 'm7'] = numeral.toLowerCase() + '7';
+                // 大七和弦
+                mapping[note + 'maj7'] = numeral + 'maj7';
+                // sus4和弦
+                mapping[note + 'sus4'] = numeral + 'sus4';
+                // add和弦
+                mapping[note + 'add9'] = numeral + 'add9';
+                mapping[note + 'add4'] = numeral + 'add4';
+                // 减和弦
+                mapping[note + 'dim'] = numeral + 'dim';
+                mapping[note + 'dim7'] = numeral + 'dim7';
+                // 增和弦
+                mapping[note + 'aug'] = numeral + 'aug';
+                // 九和弦
+                mapping[note + '9'] = numeral + '9';
+                mapping[note + 'm9'] = numeral.toLowerCase() + '9';
+                // 十一和弦
+                mapping[note + '11'] = numeral + '11';
+                mapping[note + 'm11'] = numeral.toLowerCase() + '11';
+                // 十三和弦
+                mapping[note + '13'] = numeral + '13';
+                // 特殊和弦
+                if (note === 'F#') {
+                    mapping['F#13'] = numeral + '13';
+                }
+            });
+        }
         
         return mapping;
-    }
-    
-    getNoteInKeySystem(note, useFlats) {
-        const sharpToFlat = {
-            'C#': 'Db', 'D#': 'Eb', 'F#': 'Gb', 'G#': 'Ab', 'A#': 'Bb'
-        };
-        const flatToSharp = {
-            'Db': 'C#', 'Eb': 'D#', 'Gb': 'F#', 'Ab': 'G#', 'Bb': 'A#'
-        };
-        
-        if (useFlats && sharpToFlat[note]) {
-            return sharpToFlat[note];
-        } else if (!useFlats && flatToSharp[note]) {
-            return flatToSharp[note];
-        }
-        return note;
-    }
-    
-    addAlteratedChords(mapping, keyIndex, useFlats) {
-        const chromaticScale = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
-        
-        // 常见的变化音级数对应关系（相对于主音的半音距离）
-        const alteratedChords = [
-            { interval: 3, numeral: 'bIII' },    // 降三级
-            { interval: 8, numeral: 'bVI' },     // 降六级  
-            { interval: 10, numeral: 'bVII' },   // 降七级
-        ];
-        
-        alteratedChords.forEach(({ interval, numeral }) => {
-            const noteIndex = (keyIndex + interval) % 12;
-            const note = this.getNoteInKeySystem(chromaticScale[noteIndex], useFlats);
-            
-            if (numeral === 'bIII') {
-                mapping[note] = numeral;
-                mapping[note + '7'] = numeral + '7';
-                mapping[note + 'maj7'] = numeral + 'maj7';
-            } else if (numeral === 'bVI') {
-                mapping[note] = numeral;
-                mapping[note + '7'] = numeral + '7';
-                mapping[note + 'maj7'] = numeral + 'Maj7';
-            } else if (numeral === 'bVII') {
-                mapping[note] = numeral;
-                mapping[note + '7'] = numeral + '7';
-            }
-        });
-        
-        // 添加主调小调形式 (i)
-        const tonicNote = this.getNoteInKeySystem(chromaticScale[keyIndex], useFlats);
-        mapping[tonicNote + 'm'] = 'i';
-        mapping[tonicNote + 'm7'] = 'im7';
-        
-        // 添加自然音级的小调形式（借用平行小调）
-        const majorScaleIntervals = [0, 2, 4, 5, 7, 9, 11];
-        majorScaleIntervals.forEach((interval, index) => {
-            const noteIndex = (keyIndex + interval) % 12;
-            const note = this.getNoteInKeySystem(chromaticScale[noteIndex], useFlats);
-            const romanNumerals = ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii'];
-            
-            // 为自然音级添加小调形式和属七和弦
-            if (index === 1) { // II级：添加大调和弦 (II) 和小调形式 (ii)
-                mapping[note] = 'II';
-                mapping[note + 'm'] = 'ii';
-                mapping[note + '7'] = 'II7';
-                mapping[note + 'm7'] = 'iim7';
-            } else if (index === 2) { // III级：添加大调属七和弦 (III7)
-                mapping[note + '7'] = 'III7';
-            } else if (index === 3) { // IV级：添加小调形式 (iv)
-                mapping[note + 'm'] = 'iv';
-                mapping[note + 'm7'] = 'ivm7';
-            } else if (index === 4) { // V级：添加小调形式 (v)
-                mapping[note + 'm'] = 'v';
-                mapping[note + 'm7'] = 'vm7';
-            }
-        });
-    }
+}
 }
 
 // 当DOM加载完成后初始化应用
