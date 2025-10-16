@@ -41,7 +41,7 @@ G#m       F#
 Oh yeah, your skin and bones
 E    G#m        F#
 Turn into something beautiful,
-E        G#m        F#             Emaj7
+E        G#m        F#             G#m
 You know, you know I love you so,
  
 You know i love you so.
@@ -77,7 +77,7 @@ E    G#m        F#
 Turn into something beautiful,
 E
 And you know,
-G#m        F#            Emaj7
+G#m        F#            G#m
 For you I bleed myself dry,
  
 For you I bleed myself dry.
@@ -102,7 +102,7 @@ B
 Look at the stars,
                          F#m
 Look how they shine for you
-                      Emaj7
+                      G#m
 And all the things you do.
 X
 `

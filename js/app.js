@@ -241,7 +241,8 @@ class GuitarChartApp {
         
         // 使用正则表达式匹配和弦
         // 匹配常见的和弦格式：大写字母开头，可能包含#、b、m、7、maj7等
-        const chordRegex = /\b([A-G][#b]?(?:m|maj|min|dim|aug|sus|add)?[0-9]*(?:\/[A-G][#b]?)?)\b/g;
+        // 使用前后断言避免单词边界问题，确保正确匹配带#b的和弦
+        const chordRegex = /(?<![A-Za-z])([A-G][#b]?(?:m|maj|min|dim|aug|sus|add)?[0-9]*(?:\/[A-G][#b]?)?)(?![A-Za-z#b])/g;
         
         return content.replace(chordRegex, (match, chord) => {
             const numeral = chordToNumeral[chord];
@@ -297,11 +298,13 @@ class GuitarChartApp {
             } else if (isMinor) {
                 mapping[correctNote + 'm'] = numeral;
                 mapping[correctNote + 'm7'] = numeral + '7';
+                mapping[correctNote + 'madd4'] = numeral + 'add4'; // 小调add4
             } else {
                 mapping[correctNote] = numeral;
                 mapping[correctNote + '7'] = numeral + '7';
                 mapping[correctNote + 'maj7'] = numeral + 'maj7';
                 mapping[correctNote + 'sus4'] = numeral + 'sus4';
+                mapping[correctNote + 'add4'] = numeral + 'add4'; // 大调add4
             }
         });
         
