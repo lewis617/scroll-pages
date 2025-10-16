@@ -4,6 +4,7 @@ export const song = {
     title: "Don't Look Back in Anger",
     artist: 'Oasis',
     key: 'C',
+    tags: [],
     content: `
 [Intro]
  

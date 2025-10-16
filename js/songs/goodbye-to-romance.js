@@ -4,6 +4,7 @@ export const song = {
     title: 'Goodbye to Romance',
     artist: 'Ozzy Osbourne',
     key: 'D',
+    tags: [],
     content: `[Intro]
 D F#m Bm A
  

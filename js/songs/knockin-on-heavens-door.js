@@ -4,6 +4,7 @@ export const song = {
     title: "Knockin' on Heaven's Door",
     artist: 'Bob Dylan',
     key: 'G',
+    tags: ['loopable'],
     content: `[Intro]
 G    D     Am    G    D     C
                    Oo oo-oo oo

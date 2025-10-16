@@ -4,6 +4,7 @@ export const song = {
     title: "Can't Take My Eyes Off You",
     artist: 'Frankie Valli',
     key: 'E',
+    tags: [],
     content: `
 [Verse 1]
  

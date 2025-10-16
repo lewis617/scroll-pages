@@ -10,6 +10,15 @@
     <!-- 歌曲列表页面 -->
     <div class="songs-list" id="songsListView">
         <h2>歌曲列表</h2>
+        
+        <!-- Tag 筛选器 -->
+        <div class="filter-section">
+            <label for="tagFilter">筛选标签:</label>
+            <select id="tagFilter" class="tag-filter">
+                <option value="">全部歌曲</option>
+            </select>
+        </div>
+        
         <div id="songsList" class="songs-grid"></div>
     </div>
 

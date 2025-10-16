@@ -4,6 +4,7 @@ export const song = {
     title: 'Stand by Me',
     artist: 'Ben E. King',
     key: 'A',
+    tags: ['loopable'],
     content: `[Intro]
 A    F#m   D  E  A
 

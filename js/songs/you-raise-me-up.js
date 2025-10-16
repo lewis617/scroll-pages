@@ -4,6 +4,7 @@ export const song = {
     title: 'You Raise Me Up',
     artist: 'Josh Groban',
     key: 'D',
+    tags: [],
     content: `You Raised me up Tab
 
 (Play Softly - Piano)

@@ -4,6 +4,7 @@ export const song = {
     title: 'Home on the Range',
     artist: 'Misc Traditional',
     key: 'G',
+    tags: [],
     content: `Easy camp-fire version
 
 [Verse 1]

@@ -10,6 +10,7 @@ class GuitarChartApp {
         this.showingNumerals = false; // 是否显示级数
         this.currentSong = null; // 当前歌曲
         this.originalContent = ''; // 原始和弦内容
+        this.currentFilter = ''; // 当前筛选的标签
         this.init();
     }
 
@@ -57,12 +58,14 @@ class GuitarChartApp {
         const speedUpBtn = document.getElementById('speedUpBtn');
         const slowDownBtn = document.getElementById('slowDownBtn');
         const chordToggleBtn = document.getElementById('chordToggleBtn');
+        const tagFilter = document.getElementById('tagFilter');
 
         backBtn.addEventListener('click', () => this.showSongsList());
         playPauseBtn.addEventListener('click', () => this.toggleScroll());
         speedUpBtn.addEventListener('click', () => this.changeSpeed(0.2));
         slowDownBtn.addEventListener('click', () => this.changeSpeed(-0.2));
         chordToggleBtn.addEventListener('click', () => this.toggleChordDisplay());
+        tagFilter.addEventListener('change', (e) => this.filterSongs(e.target.value));
         
         // 处理浏览器的后退/前进按钮
         window.addEventListener('popstate', () => {
@@ -82,21 +85,91 @@ class GuitarChartApp {
         // 停止滚动
         this.stopScroll();
         
+        // 初始化筛选器
+        this.initializeTagFilter();
+        
+        // 渲染歌曲列表
+        this.renderFilteredSongs();
+    }
+
+    initializeTagFilter() {
+        const tagFilter = document.getElementById('tagFilter');
+        
+        // 收集所有唯一的标签
+        const allTags = new Set();
+        songs.forEach(song => {
+            if (song.tags && Array.isArray(song.tags)) {
+                song.tags.forEach(tag => allTags.add(tag));
+            }
+        });
+        
+        // 清空并重新填充筛选器选项
+        tagFilter.innerHTML = '<option value="">全部歌曲</option>';
+        
+        // 为每个标签添加选项
+        Array.from(allTags).sort().forEach(tag => {
+            const option = document.createElement('option');
+            option.value = tag;
+            option.textContent = tag;
+            tagFilter.appendChild(option);
+        });
+        
+        // 设置当前筛选值
+        tagFilter.value = this.currentFilter;
+    }
+
+
+
+    filterSongs(tag) {
+        this.currentFilter = tag;
+        this.renderFilteredSongs();
+    }
+
+    renderFilteredSongs() {
+        const songsListElement = document.getElementById('songsList');
         songsListElement.innerHTML = '';
         
-        songs.forEach(song => {
+        // 根据筛选条件过滤歌曲
+        const filteredSongs = this.currentFilter ? 
+            songs.filter(song => song.tags && song.tags.includes(this.currentFilter)) :
+            songs;
+        
+        // 渲染筛选后的歌曲
+        filteredSongs.forEach(song => {
             const songCard = this.createSongCard(song);
             songsListElement.appendChild(songCard);
         });
+        
+        // 如果没有找到歌曲，显示提示
+        if (filteredSongs.length === 0) {
+            const noResultsDiv = document.createElement('div');
+            noResultsDiv.className = 'no-results';
+            noResultsDiv.innerHTML = `
+                <p>没有找到带有 "${this.currentFilter}" 标签的歌曲</p>
+            `;
+            songsListElement.appendChild(noResultsDiv);
+        }
     }
 
     createSongCard(song) {
         const card = document.createElement('div');
         card.className = 'song-card';
+        
+        // 创建标签HTML
+        let tagsHtml = '';
+        if (song.tags && song.tags.length > 0) {
+            tagsHtml = `
+                <div class="song-tags">
+                    ${song.tags.map(tag => `<span class="song-tag ${tag}">${tag}</span>`).join('')}
+                </div>
+            `;
+        }
+        
         card.innerHTML = `
             <h3>${song.title}</h3>
             <p>${song.artist}</p>
             <p>调性: ${song.key || '未知'}</p>
+            ${tagsHtml}
             <p>点击查看吉他谱</p>
         `;
         

@@ -4,6 +4,7 @@ export const song = {
     title: 'Yellow',
     artist: 'Coldplay',
     key: 'B',
+    tags: [],
     content: `Intro: B Badd4 X 2 (Acoustic)
        B F# E B
  
