@@ -312,15 +312,29 @@ class GuitarChartApp {
         // 定义各调的和弦对应的级数
         const chordToNumeral = this.getChordToNumeralMapping(key);
         
-        // 使用正则表达式匹配和弦
-        // 匹配常见的和弦格式：大写字母开头，可能包含#、b、m、7、maj7等
-        // 使用前后断言避免单词边界问题，确保正确匹配带#b的和弦
-        const chordRegex = /(?<![A-Za-z])([A-G][#b]?(?:m|maj|min|dim|aug|sus|add)?[0-9]*(?:\/[A-G][#b]?)?)(?![A-Za-z#b])/g;
-        
-        return content.replace(chordRegex, (match, chord) => {
-            const numeral = chordToNumeral[chord];
-            return numeral || match; // 如果找不到对应的级数，保持原和弦
+        // 按行处理
+        const lines = content.split('\n');
+        const processedLines = lines.map(line => {
+            // 检查是否为六线谱行
+            // 六线谱特征：连续的 "-" 和数字组合
+            const isTabLine =  /[-]{3,}/.test(line) || /\|.*[-\d].*\|/.test(line);
+            
+            if (isTabLine) {
+                // 如果是六线谱行，直接返回原行
+                return line;
+            }
+            
+            // 使用正则表达式匹配和弦
+            // 匹配常见的和弦格式：大写字母开头，可能包含#、b、m、7、maj7等
+            const chordRegex = /(?<![A-Za-z])([A-G][#b]?(?:m|maj|min|dim|aug|sus|add)?[0-9]*(?:\/[A-G][#b]?)?)(?![A-Za-z#b])/g;
+            
+            return line.replace(chordRegex, (match, chord) => {
+                const numeral = chordToNumeral[chord];
+                return numeral || match; // 如果找不到对应的级数，保持原和弦
+            });
         });
+        
+        return processedLines.join('\n');
     }
 
     getChordToNumeralMapping(key) {
