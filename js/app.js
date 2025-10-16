@@ -370,8 +370,13 @@ class GuitarChartApp {
             const note = this.getNoteInKeySystem(chromaticScale[noteIndex], useFlats);
             const romanNumerals = ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii'];
             
-            // 为自然音级添加小调形式
-            if (index === 4) { // V级可以是小调形式 (v)
+            // 为自然音级添加小调形式和属七和弦
+            if (index === 2) { // III级：添加大调属七和弦 (III7)
+                mapping[note + '7'] = 'III7';
+            } else if (index === 3) { // IV级：添加小调形式 (iv)
+                mapping[note + 'm'] = 'iv';
+                mapping[note + 'm7'] = 'ivm7';
+            } else if (index === 4) { // V级：添加小调形式 (v)
                 mapping[note + 'm'] = 'v';
                 mapping[note + 'm7'] = 'vm7';
             }

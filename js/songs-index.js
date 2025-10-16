@@ -7,7 +7,7 @@ import { song as you_raise_me_up } from './songs/you-raise-me-up.js';
 import { song as goodbye_to_romance } from './songs/goodbye-to-romance.js';
 import { song as yellow } from './songs/yellow.js';
 import { song as knockin_on_heavens_door } from './songs/knockin-on-heavens-door.js';
-import { song as let_it_be } from './songs/let-it-be.js';
+
 import { song as dont_look_back_in_anger } from './songs/dont-look-back-in-anger.js';
 import { song as cant_take_my_eyes_off_you } from './songs/cant-take-my-eyes-off-you.js';
 
@@ -19,7 +19,6 @@ export const songs = [
   goodbye_to_romance,
   yellow,
   knockin_on_heavens_door,
-  let_it_be,
   dont_look_back_in_anger,
   cant_take_my_eyes_off_you,
 ];

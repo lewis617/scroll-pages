@@ -26,15 +26,15 @@ Slowly fade away
  
  
 [Pre-Chorus]
-F                 Fm6            C
+F                 Fm            C
  So I start a revolution from my bed
-         F                 Fm6            C
+         F                 Fm            C
 'Cos you said the brains I had went to my head
-F             Fm6             C
+F             Fm             C
 Step outside, summertime's in bloom
 G
 Stand up beside the fireplace
-E7/G#
+E7
 Take that look from off your face
 Am             G             F       G
 You ain't ever gonna burn my heart out
@@ -65,15 +65,15 @@ of a rock and roll band, who'll throw it all away
  
  
 [Pre-Chorus]
-F                      Fm6            C
+F                      Fm            C
  I'm gonna start a revolution from my bed
-         F                 Fm6            C
+         F                 Fm            C
 'Cos you said the brains I had went to my head
-F                 Fm6             C
+F                 Fm             C
 Step outside, the summertime's in bloom
 G
 Stand up beside the fireplace
-E7/G#
+E7
 Take that look from off your face
      Am             G             F       G
 'Cos you ain't ever gonna burn my heart out
@@ -94,8 +94,8 @@ I heard you say
  
 [Solo]
  
-| F  Fm6 | C     | x3
-| G      | E7/G# |
+| F  Fm | C     | x3
+| G      | E7 |
 | Am  G  | F     | G     | G N.C. |
  
  
@@ -118,8 +118,8 @@ as she's walking on by
 My soul slides away
                F
 But don't look back in anger
-           Fm6
+           Fm
 Don't look back in anger
-            C   G   Am   E7   F   Fm6              C
+            C   G   Am   E7   F   Fm              C
 I heard you say                     At least not today`
   };
