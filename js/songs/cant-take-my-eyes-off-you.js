@@ -63,63 +63,13 @@ Daa da daa da Daa
 I love you baby, and if it's quite alright
            G#m7              C#m7
 I need you baby, to warm the lonely nights
-           F#m    B7                 E   C#7#9
+           F#m    B7                 E
 I love you baby, trust in me when I say
           F#m                   B7
 Oh pretty baby, don't bring me down I pray
           G#m7                C#m7
 Oh pretty baby, now that I've found you stay
-           F#m               D6
+           F#m               B7
 And let me love you, let me love you
- 
- 
-[Verse 3]
- 
-                G
-You're just too good to be true
-              Gmaj7
-Can't take my eyes off you
-              G7
-You'd be like heaven to touch
-        C
-I wanna hold you so much
-        Cm
-At long last love has arrived
-            G
-And I thank God I'm alive
-                A              Am
-You're just too good to be true
-              G
-Can't take my eyes off you
- 
- 
-[Bridge]
- 
-F#m
-Daa da daa da Daa da da da da
-C#m7           C#m
-Daa da daa da Daa
- 
- 
-[Chorus]
- 
-           F#m                B7
-I love you baby, and if it's quite alright
-           G#m7              C#m7
-I need you baby, to warm the lonely nights
-           F#m    B7                 E       C#7#9
-I love you baby, trust in me when I say
-          F#m                   B7
-Oh pretty baby, don't bring me down I pray
-          G#m7                C#m7
-Oh pretty baby, now that I've found you stay
-          F#m      B7                 E        C#m7
-Oh pretty baby, trust in me when I say
-           F#m                B7
-I need you baby, oh when you come my way  
-          G#m7                C#m7
-Oh pretty baby, now that I've found you stay
-           F#m                     B7
-And let me love you, baby, let me love you
     `
   };
