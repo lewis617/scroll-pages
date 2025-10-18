@@ -263,7 +263,7 @@ class GuitarChartApp {
                 playPauseBtn.textContent = '▶';
                 playPauseBtn.classList.remove('playing');
             }
-        }, 1000);
+        }, 500);
     }
 
     stopScroll() {
