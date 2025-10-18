@@ -10,7 +10,6 @@ import { song as knockin_on_heavens_door } from './songs/knockin-on-heavens-door
 
 import { song as dont_look_back_in_anger } from './songs/dont-look-back-in-anger.js';
 import { song as cant_take_my_eyes_off_you } from './songs/cant-take-my-eyes-off-you.js';
-import { song as just_the_two_of_us } from './songs/just-the-two-of-us.js';
 
 // 导出所有歌曲数组
 export const songs = [
@@ -22,5 +21,4 @@ export const songs = [
   knockin_on_heavens_door,
   dont_look_back_in_anger,
   cant_take_my_eyes_off_you,
-  just_the_two_of_us,
 ];
