@@ -20,9 +20,9 @@ Then, I am still and wait here in the silence,
 Until you come and sit awhile with me.
 
 [Chorus]
-             Bm     G                 D            A
+             Bm     G                 D       A
 You raise me up, so I can stand on mountains;
-              Bm     G              D         A
+              Bm     G              D       A
 You raise me up, to walk on stormy seas;
          Bm       G                  D     G
 I am strong, when I am on your shoulders;
@@ -33,9 +33,9 @@ You raise me up to more than I can be.
 
 Slight Crescendo to Forte
 Repeat [Capo on 3rd]
-             Bm     G                 D            A
+             Bm     G                 D      A
 You raise me up, so I can stand on mountains
-              Bm     G              D         A
+              Bm     G              D      A
 You raise me up, to walk on stormy seas
          Bm       G                  D     G
 I am strong, when I am on your shoulders
@@ -44,9 +44,9 @@ You raise me up to more than I can be.
 
 Fortissimo
 Repeat (x2) [Capo on 4th]
-             Bm     G                 D            A
+             Bm     G                 D      A
 You raise me up, so I can stand on mountains
-              Bm     G              D         A
+              Bm     G              D      A
 You raise me up, to walk on stormy seas
          Bm       G                  D     G
 I am strong, when I am on your shoulders
