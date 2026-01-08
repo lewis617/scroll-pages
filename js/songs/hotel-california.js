@@ -3,7 +3,7 @@ export const song = {
     title: 'Hotel California',
     artist: 'Eagles',
     key: 'Bm',
-    tags: [],
+    tags: ['loopable'],
     content: `Tuning: E A D G B E
 Key: Bm
 Capo 2
