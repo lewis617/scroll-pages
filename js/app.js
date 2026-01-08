@@ -7,7 +7,7 @@ class GuitarChartApp {
         this.scrolling = false;
         this.scrollSpeed = 1; // 保持1.0x显示
         this.scrollInterval = null;
-        this.showingNumerals = false; // 是否显示级数
+        this.showingNumerals = true; // 是否显示级数
         this.currentSong = null; // 当前歌曲
         this.originalContent = ''; // 原始和弦内容
         this.currentFilter = ''; // 当前筛选的标签
@@ -197,12 +197,10 @@ class GuitarChartApp {
         // 设置歌曲信息
         songTitleElement.textContent = `${song.title} - ${song.artist}`;
         songKeyInfoElement.textContent = `调性: ${song.key || '未知'}`;
-        songContentElement.textContent = song.content;
         
-        // 重置和弦显示状态
-        this.showingNumerals = false;
-        chordToggleBtn.textContent = '级数';
-        chordToggleBtn.classList.remove('active');
+        // 默认显示级数
+        this.showingNumerals = true;
+        this.renderChordDisplay();
         
         // 重置滚动状态
         this.stopScroll();
@@ -285,12 +283,15 @@ class GuitarChartApp {
     }
 
     toggleChordDisplay() {
+        this.showingNumerals = !this.showingNumerals;
+        this.renderChordDisplay();
+    }
+
+    renderChordDisplay() {
         if (!this.currentSong) return;
         
         const chordToggleBtn = document.getElementById('chordToggleBtn');
         const songContentElement = document.getElementById('songContent');
-        
-        this.showingNumerals = !this.showingNumerals;
         
         if (this.showingNumerals) {
             // 转换为级数显示
