@@ -347,7 +347,19 @@ class GuitarChartApp {
             'Db': 'C#', 'Eb': 'D#', 'Gb': 'F#', 'Ab': 'G#', 'Bb': 'A#'
         };
         
-        const normalizedKey = keyNormalization[key] || key;
+        let normalizedKey = key;
+        // 如果是小调 (例如 Bm), 自动转换为其关系大调 (例如 D)
+        if (key.endsWith('m') && key.length > 1) {
+            const minorRoot = key.slice(0, -1);
+            const normalizedMinorRoot = keyNormalization[minorRoot] || minorRoot;
+            const minorIndex = chromaticScale.indexOf(normalizedMinorRoot);
+            if (minorIndex !== -1) {
+                normalizedKey = chromaticScale[(minorIndex + 3) % 12];
+            }
+        } else {
+            normalizedKey = keyNormalization[key] || key;
+        }
+        
         const keyIndex = chromaticScale.indexOf(normalizedKey);
         
         if (keyIndex === -1) return {};

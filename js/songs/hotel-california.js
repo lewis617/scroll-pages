@@ -2,10 +2,10 @@ export const song = {
     id: 'hotel-california',
     title: 'Hotel California',
     artist: 'Eagles',
-    key: 'D',
+    key: 'Bm',
     tags: [],
     content: `Tuning: E A D G B E
-Key: D
+Key: Bm
 Capo 2
  
 [Intro]
